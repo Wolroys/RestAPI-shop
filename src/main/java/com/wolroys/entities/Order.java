@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 
@@ -11,6 +12,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Accessors(chain = true)
 @Table(name = "orders")
 public class Order {
 
@@ -25,6 +27,9 @@ public class Order {
     private String phoneNumber;
 
     private String address;
+
+    @Enumerated(value = EnumType.STRING)
+    private OrderStatus status;
 
     @OneToMany(mappedBy = "order")
     private List<ItemOrder> items;
