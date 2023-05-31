@@ -42,6 +42,7 @@ dependencies {
 	testImplementation 'org.springframework.security:spring-security-test'
 	testImplementation 'org.testcontainers:junit-jupiter'
 	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'org.springframework.cloud:spring-cloud-starter:4.0.3'
 }
 
 dependencyManagement {
