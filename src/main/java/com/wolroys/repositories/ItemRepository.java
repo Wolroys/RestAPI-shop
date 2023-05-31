@@ -1,6 +1,6 @@
 package com.wolroys.repositories;
 
-import com.wolroys.model.entities.Item;
+import com.wolroys.entities.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

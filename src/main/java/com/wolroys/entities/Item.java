@@ -1,5 +1,6 @@
 package com.wolroys.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +26,8 @@ public class Item {
     @Column(name="price")
     private int price;
 
-    @ManyToOne
+    @JsonIgnore //todo
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
 
@@ -33,6 +35,5 @@ public class Item {
     private LocalDateTime createdAt;
 
     private LocalDateTime updatedAt;
-
 
 }

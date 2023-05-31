@@ -1,15 +1,18 @@
 package com.wolroys.services;
 
 
-import com.wolroys.model.entities.Item;
+import com.wolroys.entities.Item;
 import com.wolroys.repositories.ItemRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
+@Slf4j
 @Service
 @Transactional(readOnly = true)
 public class ItemService {
@@ -31,6 +34,13 @@ public class ItemService {
 
     @Transactional
     public void addItem(Item item){
+        item.setCreatedAt(LocalDateTime.now());
         itemRepository.save(item);
+    }
+
+    @Transactional
+    public void update(Item updatedItem){
+        updatedItem.setUpdatedAt(LocalDateTime.now());
+        itemRepository.save(updatedItem);
     }
 }
